@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:name_printer_input_display/NamePrinter.dart';
 import 'package:name_printer_input_display/constants.dart';
 import 'package:name_printer_input_display/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -63,7 +64,7 @@ class _InputDisplayState extends State<InputDisplay> {
           children: [
             GestureDetector(
               onTap: (){
-
+                _launchUrl();
               },
                 child: Image.asset("assets/images/zuri.png",)),
             Form(
@@ -121,5 +122,13 @@ class _InputDisplayState extends State<InputDisplay> {
         builder: (BuildContext context) {
           return alert;
         });
+  }
+
+  _launchUrl() async{
+    if( await canLaunch(zuriUrl)){
+      await launch(zuriUrl);
+    } else {
+      throw 'Could not launch $zuriUrl';
+    }
   }
 }
