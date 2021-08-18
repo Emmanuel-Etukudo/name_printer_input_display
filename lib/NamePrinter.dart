@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:name_printer_input_display/constants.dart';
 import 'package:name_printer_input_display/widgets.dart';
 
+// code to print name
 class NamePrinter extends StatelessWidget {
   const NamePrinter({Key? key}) : super(key: key);
 

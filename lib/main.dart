@@ -67,6 +67,7 @@ class _InputDisplayState extends State<InputDisplay> {
                 _launchUrl();
               },
                 child: Image.asset("assets/images/zuri.png",)),
+            // Field to receive input
             Form(
                 child: TextFormField(
               controller: input,
@@ -82,6 +83,8 @@ class _InputDisplayState extends State<InputDisplay> {
             SizedBox(
               height: 16,
             ),
+
+            //button to display
             GestureDetector(
               onTap: () {
                 displayDialog(context);
@@ -104,7 +107,7 @@ class _InputDisplayState extends State<InputDisplay> {
       ),
     );
   }
-
+// dialog box to display input
   void displayDialog(BuildContext context) {
     Widget okButton = TextButton(onPressed: (){
       Navigator.of(context).pop();
@@ -124,6 +127,7 @@ class _InputDisplayState extends State<InputDisplay> {
         });
   }
 
+  // launch zuri link
   _launchUrl() async{
     if( await canLaunch(zuriUrl)){
       await launch(zuriUrl);
